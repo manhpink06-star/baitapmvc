@@ -1,0 +1,72 @@
+﻿@using BaiTapMVC.Models
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+
+    List<Product> products = new List<Product>()
+    {
+        new Product
+        {
+            Id = 1,
+            Name = "Laptop Dell",
+            Price = 15000000
+        },
+
+        new Product
+        {
+            Id = 2,
+            Name = "Chuột Logitech",
+            Price = 500000
+        },
+
+        new Product
+        {
+            Id = 3,
+            Name = "Bàn phím cơ",
+            Price = 1200000
+        },
+
+        new Product
+        {
+            Id = 4,
+            Name = "Màn hình Samsung",
+            Price = 4500000
+        },
+
+        new Product
+        {
+            Id = 5,
+            Name = "Tai nghe Bluetooth",
+            Price = 800000
+        }
+    };
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Product product in products)
+        {
+            <tr>
+                <td>@product.Id</td>
+
+                <td>@product.Name</td>
+
+                <td>
+                    @product.Price.ToString("N0") VNĐ
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
