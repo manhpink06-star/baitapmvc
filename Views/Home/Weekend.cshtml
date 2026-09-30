@@ -1,30 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Kiểm tra cuối tuần";
+﻿@model baitapmvc.Models.DayInfo
 
-    DateTime today = DateTime.Now;
+@{
+    ViewData["Title"] = "Bài 1";
 
-    bool isWeekend =
-        today.DayOfWeek == DayOfWeek.Saturday ||
-        today.DayOfWeek == DayOfWeek.Sunday;
+    DateTime today = ViewBag.Today;
 }
 
-<h2>Kiểm tra cuối tuần</h2>
+<div class="container mt-4">
 
-<p>
-    Ngày hôm nay:
-    <strong>@today.ToString("dd/MM/yyyy")</strong>
-</p>
+    <h2>Bài 1 - Kiểm tra cuối tuần</h2>
 
-<p>
-    Thứ:
-    <strong>@today.DayOfWeek</strong>
-</p>
+    <hr />
 
-@if (isWeekend)
-{
-    <h3>Hôm nay là cuối tuần.</h3>
-}
-else
-{
-    <h3>Hôm nay không phải là cuối tuần.</h3>
-}
+    @if (Model != null)
+    {
+        <p>
+            <strong>Ngày hiện tại:</strong>
+            @today.ToString("dd/MM/yyyy")
+        </p>
+
+        <p>
+            <strong>Hôm nay là:</strong>
+            @Model.DayName
+        </p>
+
+        @if (Model.IsWeekend)
+        {
+            <div class="alert alert-success">
+                Hôm nay là cuối tuần.
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                Hôm nay không phải là cuối tuần.
+            </div>
+        }
+
+        <p class="text-muted">
+            Kết quả được kiểm tra từ SQL Server.
+        </p>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            Không tìm thấy dữ liệu ngày trong SQL Server.
+        </div>
+    }
+
+</div>

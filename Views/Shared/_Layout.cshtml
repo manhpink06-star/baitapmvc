@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
 
-    <title>@ViewData["Title"] - baitapmvc</title>
+    <title>@ViewData["Title"] - Bài tập MVC</title>
 
     <script type="importmap"></script>
 
@@ -23,25 +25,24 @@
 <body>
 
     <header>
+
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
 
             <div class="container-fluid">
 
-                <!-- Tên website -->
                 <a class="navbar-brand"
                    asp-controller="Home"
                    asp-action="Index">
+
                     Bài tập MVC
+
                 </a>
 
-                <!-- Nút menu khi màn hình nhỏ -->
                 <button class="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target=".navbar-collapse"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
+                        aria-expanded="false">
 
                     <span class="navbar-toggler-icon"></span>
 
@@ -53,20 +54,28 @@
 
                         <!-- BÀI 1 -->
                         <li class="nav-item">
+
                             <a class="nav-link text-dark"
                                asp-controller="Home"
-                               asp-action="Index">
+                               asp-action="Weekend">
+
                                 Bài 1
+
                             </a>
+
                         </li>
 
                         <!-- BÀI 2 -->
                         <li class="nav-item">
+
                             <a class="nav-link text-dark"
                                asp-controller="Product"
                                asp-action="Index">
+
                                 Bài 2
+
                             </a>
+
                         </li>
 
                     </ul>
@@ -76,10 +85,11 @@
             </div>
 
         </nav>
+
     </header>
 
 
-    <!-- Nội dung từng trang -->
+    <!-- QUAN TRỌNG: NỘI DUNG VIEW SẼ HIỂN THỊ Ở ĐÂY -->
     <div class="container">
 
         <main role="main" class="pb-3">
@@ -91,7 +101,6 @@
     </div>
 
 
-    <!-- Footer -->
     <footer class="border-top footer text-muted">
 
         <div class="container">
@@ -114,4 +123,5 @@
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>
+
 </html>

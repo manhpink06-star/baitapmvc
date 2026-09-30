@@ -1,72 +1,42 @@
-﻿@using BaiTapMVC.Models
+﻿@model IEnumerable<baitapmvc.Models.Product>
 
 @{
-    ViewData["Title"] = "Danh sách sản phẩm";
-
-    List<Product> products = new List<Product>()
-    {
-        new Product
-        {
-            Id = 1,
-            Name = "Laptop Dell",
-            Price = 15000000
-        },
-
-        new Product
-        {
-            Id = 2,
-            Name = "Chuột Logitech",
-            Price = 500000
-        },
-
-        new Product
-        {
-            Id = 3,
-            Name = "Bàn phím cơ",
-            Price = 1200000
-        },
-
-        new Product
-        {
-            Id = 4,
-            Name = "Màn hình Samsung",
-            Price = 4500000
-        },
-
-        new Product
-        {
-            Id = 5,
-            Name = "Tai nghe Bluetooth",
-            Price = 800000
-        }
-    };
+    ViewData["Title"] = "Bài 2";
 }
 
-<h2>Danh sách sản phẩm</h2>
+<div class="container mt-4">
 
-<table border="1" cellpadding="10">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Tên sản phẩm</th>
-            <th>Giá</th>
-        </tr>
-    </thead>
+    <h2>Bài 2 - Danh sách sản phẩm</h2>
 
-    <tbody>
+    <p>Dữ liệu lấy từ SQL Server</p>
 
-        @foreach (Product product in products)
-        {
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
             <tr>
-                <td>@product.Id</td>
-
-                <td>@product.Name</td>
-
-                <td>
-                    @product.Price.ToString("N0") VNĐ
-                </td>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
             </tr>
-        }
+        </thead>
 
-    </tbody>
-</table>
+        <tbody>
+
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+
+                    <td>@product.Name</td>
+
+                    <td>
+                        @product.Price.ToString("N0") VNĐ
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
